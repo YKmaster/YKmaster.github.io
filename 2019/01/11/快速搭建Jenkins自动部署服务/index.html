@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="kang yang">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="快速搭建Jenkins自动部署服务">
+  <meta property="og:description" content="赚钱是最好的修行">
+  <meta property="og:site_name" content="沉默的羊">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://baidu.com">
+  
+    <link rel="alternate" href="/atom.xml" title="沉默的羊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>沉默的羊</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">快速搭建Jenkins自动部署服务</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/ykmaster">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:ykmaster@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By kang yang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-01-11</span>
+            <span class="time">10:32:36</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/运维/">运维</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/jenkins/">#jenkins</a> <a class="tag" href="/tags/自动部署/">#自动部署</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>本教程着重配置使用，并不是科普详细环境安装，本例用到的环境：</p>
+<blockquote>
+<p>Jenkins2.89.2<br>java 8.0  /usr/local/jdk8.0/<br>tomcat 9.0.2  /usr/local/tomcat9.0.2/    已做软连接 /usr/local/tomcat<br>git<br>maven<br>node</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h2><p>以阿里云为例，直接选择<a href="https://market.aliyun.com/products/53400005/cmjj024937.html?spm=5176.204674.1085795.1.788e3eadmtR9k0" target="_blank" rel="noopener">Jenkins2.89.2</a>作为我们的系统盘，配置选择1核2G，包月，网络按量100M，费用大概每月57</p>
+<p>下载最新jenkins包（最新版本2.151.1）进行更新，启动tomcat,访问 0.0.0.0:/jenkins/    账号  admin  密码admin</p>
+<p><img src="https://njbdcwking.oss-cn-hangzhou.aliyuncs.com/jenkins.png" alt="images"></p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>进入系统管理-插件管理</p>
+<p>升级必要插件bouncycastle API ,JSch dependency ,Step API ,SSH Credentials ,其他选择性升级</p>
+<p>下载安装ssh</p>
+<p><img src="https://njbdcwking.oss-cn-hangzhou.aliyuncs.com/ssh.png" alt="ssh"></p>
+<p>下载安装Maven Integration Plugin</p>
+<p><img src="https://njbdcwking.oss-cn-hangzhou.aliyuncs.com/maven.png" alt="maven"></p>
+<p>下载安装GitLab</p>
+<p>下载安装NodeJS</p>
+<p>下载安装Role-baseed Authorization Strategy</p>
+<p><img src="https://njbdcwking.oss-cn-hangzhou.aliyuncs.com/auth.png" alt="auth"></p>
+<h2 id="配置全局工具"><a href="#配置全局工具" class="headerlink" title="配置全局工具"></a>配置全局工具</h2><p><img src="https://njbdcwking.oss-cn-hangzhou.aliyuncs.com/tools.png" alt="tools"></p>
+<p><img src="https://njbdcwking.oss-cn-hangzhou.aliyuncs.com/tools2.png" alt="tools"></p>
+<h2 id="配置gitlab帐号"><a href="#配置gitlab帐号" class="headerlink" title="配置gitlab帐号"></a>配置gitlab帐号</h2><ul>
+<li><p>git –version</p>
+</li>
+<li><p>git config –global user.name “heliang5241”</p>
+</li>
+<li><p>git config –global user.email “<a href="mailto:123456@qq.com" target="_blank" rel="noopener">123456@qq.com</a>“</p>
+</li>
+<li><p>ssh-keygen -t rsa -C  “<a href="mailto:123456@qq.com" target="_blank" rel="noopener">123456@qq.com</a>“</p>
+</li>
+<li><p>登陆gitlab绑定公钥，并在jenkins配置对应私钥</p>
+<p><img src="https://njbdcwking.oss-cn-hangzhou.aliyuncs.com/%E5%85%A8%E5%B1%80%E5%87%AD%E8%AF%81.png" alt="key"></p>
+</li>
+</ul>
+<h1 id="修改maven配置文件"><a href="#修改maven配置文件" class="headerlink" title="修改maven配置文件"></a>修改maven配置文件</h1><p>更新仓库地址，换成自己的</p>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>系统管理-SSH Servers-添加服务器</p>
+<p>保存策略</p>
+<p>代码管理</p>
+<p>build命令</p>
+<p>远程脚本</p>
+<p>……</p>
+<h2 id="添加管理员，启用权限管理"><a href="#添加管理员，启用权限管理" class="headerlink" title="添加管理员，启用权限管理"></a>添加管理员，启用权限管理</h2><p>系统管理-管理用户-添加管理员</p>
+<p>系统管理-系统设置-授权策略，启用矩阵授权策略，配置需要的权限</p>
+<p><img src="https://njbdcwking.oss-cn-hangzhou.aliyuncs.com/WX20181129-172916%402x.png" alt="role"></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/ykmaster">yang kang.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
