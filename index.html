@@ -94,30 +94,30 @@
     <div class="col-lg-10 col-md-10 col-md-offset-1">
       
         <div class="post-item-wrapper">
-  <a href="/2019/10/12/测试文档/" class="post-title">
-      测试文档
+  <a href="/2019/10/23/gitlab-ci-中分步job脚本记录/" class="post-title">
+      gitlab-ci 中分步job脚本记录
   </a>
   <div class="post-excerpt">
     <!-- Post Date and Categories -->
     <div class="date-and-category">
-      <div class="date">2019-10-12</div>
+      <div class="date">2019-10-23</div>
       <div class="categories">
         
           
 
-<a href="/categories/运维/">运维</a>
+<a href="/categories/kubernetes/">kubernetes</a>
 
         
       </div>
     </div>
     <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>艺术硕士 艺术硕士塔顶栽</p></div>
+    <div class="excerpt typo"><p>在一个完整的<font color="red">CI/CD </font>流水线过程中，大致可以分为测试、打包、构建容器、部署几个stage，每个stage还可以分成不同的job去定义不同的操作</p></div>
     <!-- Post Tags -->
     <div class="tags">
       
         
 
-<a class="tag" href="/tags/jenkins/">jenkins</a> <a class="tag" href="/tags/自动部署/">自动部署</a>
+<a class="tag" href="/tags/CI-CD/">CI/CD</a> <a class="tag" href="/tags/stage/">stage</a> <a class="tag" href="/tags/job/">job</a>
 
 
       
@@ -127,25 +127,32 @@
 
       
         <div class="post-item-wrapper">
-  <a href="/2019/10/12/hello-world/" class="post-title">
-      Hello World
+  <a href="/2019/10/23/制作CI-CD中的kubectl容器/" class="post-title">
+      制作CI/CD中的kubectl容器
   </a>
   <div class="post-excerpt">
     <!-- Post Date and Categories -->
     <div class="date-and-category">
-      <div class="date">2019-10-12</div>
+      <div class="date">2019-10-23</div>
       <div class="categories">
         
-          Uncategorized
+          
+
+<a href="/categories/kubernetes/">kubernetes</a>
+
         
       </div>
     </div>
     <!-- Post Excerpt -->
-    <div class="excerpt typo">No Post Excerpt</div>
+    <div class="excerpt typo"><p>在<font color="red">gitlab-ci </font>流水线中最后一步就是把我们的项目容器部署到k8s集群中去，这时就需要使用kubectl去连接集群的api完成部署<br>直接给出Dockerfile</p></div>
     <!-- Post Tags -->
     <div class="tags">
       
-        <div class="untagged">Untagged</div>
+        
+
+<a class="tag" href="/tags/CI-CD/">CI/CD</a> <a class="tag" href="/tags/docker/">docker</a>
+
+
       
     </div>
   </div>
@@ -153,33 +160,63 @@
 
       
         <div class="post-item-wrapper">
-  <a href="/2019/01/11/快速搭建Jenkins自动部署服务/" class="post-title">
-      快速搭建Jenkins自动部署服务
+  <a href="/2019/10/23/Docker-容器处理中文乱码/" class="post-title">
+      Docker 容器处理中文乱码
   </a>
   <div class="post-excerpt">
     <!-- Post Date and Categories -->
     <div class="date-and-category">
-      <div class="date">2019-01-11</div>
+      <div class="date">2019-10-23</div>
       <div class="categories">
         
           
 
-<a href="/categories/运维/">运维</a>
+<a href="/categories/kubernetes/">kubernetes</a>
 
         
       </div>
     </div>
     <!-- Post Excerpt -->
-    <div class="excerpt typo"><p>本教程着重配置使用，并不是科普详细环境安装，本例用到的环境：</p>
-<blockquote>
-<p>Jenkins2.89.2<br>java 8.0  /usr/local/jdk8.0/<br>tomcat 9.0.2  /usr/local/tomcat9.0.2/    已做软连接 /usr/local/tomcat<br>git<br>maven<br>node</p>
-</blockquote></div>
+    <div class="excerpt typo"><p>使用Docker构建的Springboot项目容器，使用图像类生成的图片总是乱码，尝试了各种方案，最后发现是容器缺少中文字体<br>以下是修改后的Dockerfile</p></div>
     <!-- Post Tags -->
     <div class="tags">
       
         
 
-<a class="tag" href="/tags/jenkins/">jenkins</a> <a class="tag" href="/tags/自动部署/">自动部署</a>
+<a class="tag" href="/tags/docker/">docker</a>
+
+
+      
+    </div>
+  </div>
+</div>
+
+      
+        <div class="post-item-wrapper">
+  <a href="/2019/10/13/linux下安装git2-9-2/" class="post-title">
+      linux下安装git2.9.2
+  </a>
+  <div class="post-excerpt">
+    <!-- Post Date and Categories -->
+    <div class="date-and-category">
+      <div class="date">2019-10-13</div>
+      <div class="categories">
+        
+          
+
+<a href="/categories/linux/">linux</a>
+
+        
+      </div>
+    </div>
+    <!-- Post Excerpt -->
+    <div class="excerpt typo"><p>yum list 发现git软件版本还是1.8，很久没更新了，所以这里选择手动安装</p></div>
+    <!-- Post Tags -->
+    <div class="tags">
+      
+        
+
+<a class="tag" href="/tags/linux/">linux</a> <a class="tag" href="/tags/git/">git</a>
 
 
       
@@ -212,8 +249,8 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <p class="copyright text-muted">
-          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
           Inspired By <a target="_blank" href="https://github.com/ykmaster">yang kang.</a>
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
         <p class="copyright text-muted">
           Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
         </p>

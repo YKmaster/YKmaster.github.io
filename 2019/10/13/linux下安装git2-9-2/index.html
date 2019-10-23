@@ -8,7 +8,7 @@
   <meta name="description" content>
   <meta name="author" content="kang yang">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="测试文档">
+  <meta property="og:title" content="linux下安装git2.9.2">
   <meta property="og:description" content="赚钱是最好的修行">
   <meta property="og:site_name" content="沉默的羊">
   <meta property="og:type" content="article">
@@ -43,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">测试文档</p>
+          <p class="title">linux下安装git2.9.2</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -99,14 +99,14 @@
           
           <!-- Date -->
           <span class="date-time info">On
-            <span class="date">2019-10-12</span>
-            <span class="time">21:45:03</span>
+            <span class="date">2019-10-13</span>
+            <span class="time">17:00:45</span>
           </span>
           
           <!--  Categories  -->
             <span class="categories info">Under 
 
-<a href="/categories/运维/">运维</a>
+<a href="/categories/linux/">linux</a>
 </span>
           
         </div>
@@ -115,15 +115,19 @@
           <div class="post-tags text-muted">
             Tags: 
 
-<a class="tag" href="/tags/jenkins/">#jenkins</a> <a class="tag" href="/tags/自动部署/">#自动部署</a>
+<a class="tag" href="/tags/linux/">#linux</a> <a class="tag" href="/tags/git/">#git</a>
 
 
           </div>
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <p>艺术硕士 艺术硕士塔顶栽</p>
+          <p>yum list 发现git软件版本还是1.8，很久没更新了，所以这里选择手动安装</p>
 <a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">依赖库安装</span><br><span class="line"># yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br><span class="line"># yum install gcc perl-ExtUtils-MakeMaker</span><br><span class="line"></span><br><span class="line">卸载低版本的 Git</span><br><span class="line"># yum remove git</span><br><span class="line"></span><br><span class="line">下载新版的 Git 源码包（我放在了 /usr/local/git 的目录下了，git是我自己mkdir的目录）</span><br><span class="line"># cd git</span><br><span class="line"># wget https://github.com/git/git/archive/v2.9.2.tar.gz</span><br><span class="line"># tar -xzvf v2.9.2.tar.gz</span><br><span class="line">#* cd git-2.9.2</span><br><span class="line"># make prefix=/usr/local/git all</span><br><span class="line"># make prefix=/usr/local/git install</span><br><span class="line"></span><br><span class="line"># vim /etc/profile  </span><br><span class="line">export PATH=&quot;/usr/local/git/bin:$PATH&quot;</span><br><span class="line"></span><br><span class="line"># source /etc/profile   </span><br><span class="line"># git --version  </span><br><span class="line"></span><br><span class="line">将git设置为默认路径，不然后面克隆时会报错</span><br><span class="line"># ln -s /usr/local/git/bin/git-upload-pack /usr/bin/git-upload-pack </span><br><span class="line"># ln -s /usr/local/git/bin/git-receive-pack /usr/bin/git-receive-pack </span><br><span class="line"></span><br><span class="line">创建一个git用户组和用户，用来运行git服务</span><br><span class="line"># groupadd git</span><br><span class="line"># useradd git -g git</span><br><span class="line"># passwd git  #参数是用户名</span><br><span class="line"># su - git  //切换git用户</span><br></pre></td></tr></table></figure>
+
+
         </div>
       </div>
     </div>
@@ -138,8 +142,8 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <p class="copyright text-muted">
-          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
           Inspired By <a target="_blank" href="https://github.com/ykmaster">yang kang.</a>
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
         <p class="copyright text-muted">
           Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
         </p>

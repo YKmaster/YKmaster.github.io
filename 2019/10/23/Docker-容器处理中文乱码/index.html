@@ -8,10 +8,10 @@
   <meta name="description" content>
   <meta name="author" content="kang yang">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="沉默的羊">
+  <meta property="og:title" content="Docker 容器处理中文乱码">
   <meta property="og:description" content="赚钱是最好的修行">
   <meta property="og:site_name" content="沉默的羊">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:image" content="http://baidu.com">
   
     <link rel="alternate" href="/atom.xml" title="沉默的羊" type="application/atom+xml">
@@ -35,8 +35,7 @@
 </head>
 
   <body>
-    <!-- Archive Header -->
-<!-- Page Header -->
+    <!-- Page Header -->
 
 
 <header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
@@ -44,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">Blog Archives</p>
+          <p class="title">Docker 容器处理中文乱码</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -89,58 +88,52 @@
   </div>
 </header>
 
-<!-- Archive List -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      
-        <div class="archive-item">
-  <a href="/2019/10/23/gitlab-ci-中分步job脚本记录/" class="post-title">
-    gitlab-ci 中分步job脚本记录
-  </a>
-  <div class="date text-muted">Posted on 2019-10-23 16:17:23</div>
-</div>
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By kang yang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-10-23</span>
+            <span class="time">17:00:45</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
 
-      
-        <div class="archive-item">
-  <a href="/2019/10/23/制作CI-CD中的kubectl容器/" class="post-title">
-    制作CI/CD中的kubectl容器
-  </a>
-  <div class="date text-muted">Posted on 2019-10-23 15:34:38</div>
-</div>
+<a href="/categories/kubernetes/">kubernetes</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
 
-      
-        <div class="archive-item">
-  <a href="/2019/10/23/Docker-容器处理中文乱码/" class="post-title">
-    Docker 容器处理中文乱码
-  </a>
-  <div class="date text-muted">Posted on 2019-10-23 15:11:52</div>
-</div>
+<a class="tag" href="/tags/docker/">#docker</a>
 
-      
-        <div class="archive-item">
-  <a href="/2019/10/13/linux下安装git2-9-2/" class="post-title">
-    linux下安装git2.9.2
-  </a>
-  <div class="date text-muted">Posted on 2019-10-13 21:57:37</div>
-</div>
 
-      
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>使用Docker构建的Springboot项目容器，使用图像类生成的图片总是乱码，尝试了各种方案，最后发现是容器缺少中文字体<br>以下是修改后的Dockerfile</p>
+<a id="more"></a>
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">FROM store/oracle/serverjre:8</span><br><span class="line">MAINTAINER yangkang@njbandou.com   </span><br><span class="line"></span><br><span class="line">VOLUME /tmp</span><br><span class="line">ADD app.jar /app.jar</span><br><span class="line">COPY SIMSUN.ttf /usr/java/jdk1.8.0_211/jre/lib/fonts/SIMSUN.ttf</span><br><span class="line">ENV LANG C.UTF-8</span><br><span class="line"></span><br><span class="line">#修正时区</span><br><span class="line">ENV TZ Asia/Shanghai</span><br><span class="line">ENV JAVA_OPS -Duser.timezone=Asia/Shanghai</span><br><span class="line"></span><br><span class="line">EXPOSE 8083</span><br><span class="line">ENTRYPOINT [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>可以进入容器使用命令 locale -a 查看系统语言环境</p>
+
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<!-- Pagination -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
-      <ul class="pagination">
-          
-          
-      </ul>
-    </div>
-  </div>
-</div>
+</article>
 
 
 
