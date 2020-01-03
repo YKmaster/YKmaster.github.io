@@ -8,7 +8,7 @@
   <meta name="description" content>
   <meta name="author" content="kang yang">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="快速诊断Linux性能的命令">
+  <meta property="og:title" content="http网络请求码">
   <meta property="og:description" content="赚钱是最好的修行">
   <meta property="og:site_name" content="沉默的羊">
   <meta property="og:type" content="article">
@@ -43,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">快速诊断Linux性能的命令</p>
+          <p class="title">http网络请求码</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -99,14 +99,14 @@
           
           <!-- Date -->
           <span class="date-time info">On
-            <span class="date">2019-12-20</span>
-            <span class="time">12:38:01</span>
+            <span class="date">2020-01-03</span>
+            <span class="time">12:38:02</span>
           </span>
           
           <!--  Categories  -->
             <span class="categories info">Under 
 
-<a href="/categories/linux/">linux</a>
+<a href="/categories/network/">network</a>
 </span>
           
         </div>
@@ -115,53 +115,24 @@
           <div class="post-tags text-muted">
             Tags: 
 
-<a class="tag" href="/tags/linux/">#linux</a>
+<a class="tag" href="/tags/http/">#http</a>
 
 
           </div>
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <p>​    作为一个运维，需要长期与大量服务器打交道，如何快速诊断服务器的性能以及判断其资源消耗的情况就非常重要和必要，接下来才可以进行针对性的优化。</p>
+          <p>http常见的请求码：</p>
 <a id="more"></a>
 
-<ol>
-<li><p>uptime</p>
-<p>这个命令可以快速查看系统平均负载，后面三个数字分别代表一分钟，五分钟，十五分钟内负载平均值</p>
-</li>
-<li><p>dmesg | tail</p>
-<p>它显示了最近10条系统消息，查找可能的错误，这个命令永远值得一试</p>
-</li>
-<li><p>vmstat 1</p>
-<p><img src="/img/002.jpg" alt></p>
-<p>r：cpu中正在运行和等待运行的进程数量，数量大于cpu的数量表示已经饱和</p>
-<p>free：以kb为单位的空闲内存</p>
-<p>si, so：如果它们不是0，表示内存不足了</p>
-<p>us,sy,id,wa,st：cpu分解时间，用户user-系统system-空闲idle-等待wait-占用stolen</p>
-</li>
-<li><p>mpstat -P ALL 1</p>
-<p><img src="/img/003.jpg" alt></p>
-<p>打印每个cpu的分解时间</p>
-</li>
-<li><p>pidstat 1</p>
-<p><img src="/img/004.jpg" alt></p>
-<p>对每个进程的统计摘要</p>
-</li>
-<li><p>iostat -xz 1</p>
-<p><img src="/img/005.jpg" alt></p>
-<p>查看块设备情况的很棒的工具</p>
-</li>
-<li><p>free -m </p>
-</li>
-<li><p>sar -n DEV 1</p>
-<p><img src="/img/006.jpg" alt></p>
-<p>检查网络吞吐量</p>
-</li>
-<li><p>star -n TCP,ETCP 1</p>
-<p><img src="/img/007.jpg" alt></p>
-<p>TCP指标汇总视图1</p>
-</li>
-</ol>
+<ul>
+<li>100 信息型状态响应码表示目前为止一切正常, 客户端应该继续请求, 如果已完成请求则忽略</li>
+<li>101 状态码表示服务器应客户端升级协议的请求（<code>Upgrade</code>请求头）正在进行协议切换</li>
+<li>201-206 都表示服务器成功处理了请求的状态代码<br>200 ok<br>201 是一个代表成功的应答状态码，表示请求已经被成功处理，并且创建了新的资源<br>202 表示服务器端已经收到请求消息，但是尚未进行处理<br>203 Non-Authoritative Information<br>204 成功状态响应码，表示该请求已经成功了，但是客户端客户不需要离开当前页面<br>205 通知客户端重置文档视图，比如清空表单内容、重置 canvas 状态或者刷新用户界面<br>206 </li>
+<li>300-308 表示的意思是：要完成请求，您需要进一步进行操作<br>300 重定向<br>301 永久重定向<br>302 表明请求的资源被暂时的移动到了由<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Location" target="_blank" rel="noopener"><code>Location</code></a> 头部指定的 URL 上<br>303 重定向链接指向的不是新上传的资源，而是另外一个页面，比如消息确认页面或上传进度页面<br>304 可以使用缓存的内容<br>305<br>306<br>307 临时重定向<br>308 永久重定向</li>
+<li>4XX 状态码表示请求可能出错<br>400（错误请求） 服务器不理解请求的语法。<br>401（身份验证错误） 此页要求授权。您可能不希望将此网页纳入索引。<br>403（禁止） 服务器拒绝请求。<br>404（未找到） 服务器找不到请求的网页<br>405 表明服务器禁止了使用当前 HTTP 方法的请求</li>
+<li>5xx 服务器在尝试处理请求时发生内部错误。<br>500 意味着所请求的服务器遇到意外的情况并阻止其执行请求<br>501 表示请求的方法不被服务器支持，因此无法被处理<br>502 表示作为网关或代理角色的服务器，从上游服务器中接收到的响应是无效的<br>503 表示服务器尚未处于可以接受请求的状态<br>504 表示扮演网关或者代理的服务器无法在规定的时间内获得想要的响应<br>505 表示服务器不支持请求所使用的 HTTP 版本<br>511 表示客户端需要通过验证才能使用该网络</li>
+</ul>
 
         </div>
       </div>

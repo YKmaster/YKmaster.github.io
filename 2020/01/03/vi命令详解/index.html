@@ -8,7 +8,7 @@
   <meta name="description" content>
   <meta name="author" content="kang yang">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="快速诊断Linux性能的命令">
+  <meta property="og:title" content="vi命令详解">
   <meta property="og:description" content="赚钱是最好的修行">
   <meta property="og:site_name" content="沉默的羊">
   <meta property="og:type" content="article">
@@ -43,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">快速诊断Linux性能的命令</p>
+          <p class="title">vi命令详解</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -99,8 +99,8 @@
           
           <!-- Date -->
           <span class="date-time info">On
-            <span class="date">2019-12-20</span>
-            <span class="time">12:38:01</span>
+            <span class="date">2020-01-03</span>
+            <span class="time">12:38:02</span>
           </span>
           
           <!--  Categories  -->
@@ -115,53 +115,31 @@
           <div class="post-tags text-muted">
             Tags: 
 
-<a class="tag" href="/tags/linux/">#linux</a>
+<a class="tag" href="/tags/vi/">#vi</a> <a class="tag" href="/tags/vim/">#vim</a>
 
 
           </div>
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <p>​    作为一个运维，需要长期与大量服务器打交道，如何快速诊断服务器的性能以及判断其资源消耗的情况就非常重要和必要，接下来才可以进行针对性的优化。</p>
+          <p>vi可分为三种状态，命令行模式（光标移动，字符删除），插入模式（文字输入），底行模式（保存退出，寻找等）</p>
 <a id="more"></a>
 
-<ol>
-<li><p>uptime</p>
-<p>这个命令可以快速查看系统平均负载，后面三个数字分别代表一分钟，五分钟，十五分钟内负载平均值</p>
-</li>
-<li><p>dmesg | tail</p>
-<p>它显示了最近10条系统消息，查找可能的错误，这个命令永远值得一试</p>
-</li>
-<li><p>vmstat 1</p>
-<p><img src="/img/002.jpg" alt></p>
-<p>r：cpu中正在运行和等待运行的进程数量，数量大于cpu的数量表示已经饱和</p>
-<p>free：以kb为单位的空闲内存</p>
-<p>si, so：如果它们不是0，表示内存不足了</p>
-<p>us,sy,id,wa,st：cpu分解时间，用户user-系统system-空闲idle-等待wait-占用stolen</p>
-</li>
-<li><p>mpstat -P ALL 1</p>
-<p><img src="/img/003.jpg" alt></p>
-<p>打印每个cpu的分解时间</p>
-</li>
-<li><p>pidstat 1</p>
-<p><img src="/img/004.jpg" alt></p>
-<p>对每个进程的统计摘要</p>
-</li>
-<li><p>iostat -xz 1</p>
-<p><img src="/img/005.jpg" alt></p>
-<p>查看块设备情况的很棒的工具</p>
-</li>
-<li><p>free -m </p>
-</li>
-<li><p>sar -n DEV 1</p>
-<p><img src="/img/006.jpg" alt></p>
-<p>检查网络吞吐量</p>
-</li>
-<li><p>star -n TCP,ETCP 1</p>
-<p><img src="/img/007.jpg" alt></p>
-<p>TCP指标汇总视图1</p>
-</li>
-</ol>
+<p>1）插入模式</p>
+<p>​    按 i 进入插入模式</p>
+<p>​    按 a 从当前下一个位置开始输入</p>
+<p>​    按 o 插入新行</p>
+<p>2）移动光标</p>
+<p>​    G 移到末行</p>
+<p>​    数字 0 移到行开头</p>
+<p>​    ^ | $ 行首行尾</p>
+<p>​    w | b 下个字、上个字 </p>
+<p>3）删除字符</p>
+<p>​    x 删除下个字符</p>
+<p>​    dd 删除行</p>
+<p>4）u 恢复操作</p>
+<p>5）:set nu 列出行号</p>
+<p>6）:/80 可以一直按 n 找出想要的关键词</p>
 
         </div>
       </div>

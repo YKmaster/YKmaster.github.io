@@ -8,10 +8,10 @@
   <meta name="description" content>
   <meta name="author" content="kang yang">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="快速诊断Linux性能的命令">
+  <meta property="og:title" content="沉默的羊">
   <meta property="og:description" content="赚钱是最好的修行">
   <meta property="og:site_name" content="沉默的羊">
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="website">
   <meta property="og:image" content="http://baidu.com">
   
     <link rel="alternate" href="/atom.xml" title="沉默的羊" type="application/atom+xml">
@@ -35,7 +35,8 @@
 </head>
 
   <body>
-    <!-- Page Header -->
+    <!-- Archive Header -->
+<!-- Page Header -->
 
 
 <header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
@@ -43,7 +44,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">快速诊断Linux性能的命令</p>
+          <p class="title">Blog Archives</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -88,86 +89,34 @@
   </div>
 </header>
 
-<article>
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By kang yang</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2019-12-20</span>
-            <span class="time">12:38:01</span>
-          </span>
-          
-          <!--  Categories  -->
-            <span class="categories info">Under 
+<!-- Archive List -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      
+        <div class="archive-item">
+  <a href="/2020/01/03/vi命令详解/" class="post-title">
+    vi命令详解
+  </a>
+  <div class="date text-muted">Posted on 2020-01-03 10:55:56</div>
+</div>
 
-<a href="/categories/linux/">linux</a>
-</span>
-          
-        </div>
-        <!-- Tags -->
-        
-          <div class="post-tags text-muted">
-            Tags: 
+      
 
-<a class="tag" href="/tags/linux/">#linux</a>
-
-
-          </div>
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p>​    作为一个运维，需要长期与大量服务器打交道，如何快速诊断服务器的性能以及判断其资源消耗的情况就非常重要和必要，接下来才可以进行针对性的优化。</p>
-<a id="more"></a>
-
-<ol>
-<li><p>uptime</p>
-<p>这个命令可以快速查看系统平均负载，后面三个数字分别代表一分钟，五分钟，十五分钟内负载平均值</p>
-</li>
-<li><p>dmesg | tail</p>
-<p>它显示了最近10条系统消息，查找可能的错误，这个命令永远值得一试</p>
-</li>
-<li><p>vmstat 1</p>
-<p><img src="/img/002.jpg" alt></p>
-<p>r：cpu中正在运行和等待运行的进程数量，数量大于cpu的数量表示已经饱和</p>
-<p>free：以kb为单位的空闲内存</p>
-<p>si, so：如果它们不是0，表示内存不足了</p>
-<p>us,sy,id,wa,st：cpu分解时间，用户user-系统system-空闲idle-等待wait-占用stolen</p>
-</li>
-<li><p>mpstat -P ALL 1</p>
-<p><img src="/img/003.jpg" alt></p>
-<p>打印每个cpu的分解时间</p>
-</li>
-<li><p>pidstat 1</p>
-<p><img src="/img/004.jpg" alt></p>
-<p>对每个进程的统计摘要</p>
-</li>
-<li><p>iostat -xz 1</p>
-<p><img src="/img/005.jpg" alt></p>
-<p>查看块设备情况的很棒的工具</p>
-</li>
-<li><p>free -m </p>
-</li>
-<li><p>sar -n DEV 1</p>
-<p><img src="/img/006.jpg" alt></p>
-<p>检查网络吞吐量</p>
-</li>
-<li><p>star -n TCP,ETCP 1</p>
-<p><img src="/img/007.jpg" alt></p>
-<p>TCP指标汇总视图1</p>
-</li>
-</ol>
-
-        </div>
-      </div>
     </div>
   </div>
-</article>
+</div>
+<!-- Pagination -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-md-offset-1">
+      <ul class="pagination">
+          
+          
+      </ul>
+    </div>
+  </div>
+</div>
 
 
 
