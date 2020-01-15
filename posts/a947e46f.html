@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="kang yang">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="gitlab-ci 中分步job脚本记录">
+  <meta property="og:description" content="赚钱是最好的修行">
+  <meta property="og:site_name" content="沉默的羊">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://baidu.com">
+  
+    <link rel="alternate" href="/atom.xml" title="沉默的羊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>沉默的羊</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">gitlab-ci 中分步job脚本记录</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/ykmaster">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:ykmaster@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By kang yang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-10-23</span>
+            <span class="time">11:24:42</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/CI-CD/">CI/CD</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/stage/">#stage</a> <a class="tag" href="/tags/job/">#job</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>在一个完整的<font color="red">CI/CD </font>流水线过程中，大致可以分为测试、打包、构建容器、部署几个stage，每个stage还可以分成不同的job去定义不同的操作</p>
+<a id="more"></a>
+<p>定义阶段stage:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stages:</span><br><span class="line">  - test</span><br><span class="line">  - maven-test-build</span><br><span class="line">  - docker-build</span><br><span class="line">  - deploy-to-test-env</span><br></pre></td></tr></table></figure>
+
+<p>测试阶段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">maven-test:</span><br><span class="line">  image: maven:3.6-jdk-8</span><br><span class="line">  stage: test</span><br><span class="line">  variables:</span><br><span class="line">    GIT_STRATEGY: fetch</span><br><span class="line">  only:</span><br><span class="line">    refs:</span><br><span class="line">      - test</span><br><span class="line">      - master</span><br><span class="line">  script:</span><br><span class="line">    - mvn $MAVEN_CLI_OPTS clean test</span><br></pre></td></tr></table></figure>
+
+<p>打包阶段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">env-test-build:</span><br><span class="line">  stage: maven-test-build</span><br><span class="line">  image: maven:3.6-jdk-8</span><br><span class="line">  variables:</span><br><span class="line">    GIT_STRATEGY: fetch</span><br><span class="line">  only:</span><br><span class="line">    refs:</span><br><span class="line">      - test</span><br><span class="line">  script:</span><br><span class="line">    - mvn $MAVEN_CLI_OPTS -Dmaven.test.skip=true clean package -P test</span><br><span class="line">    - cp target/app.jar /opt/cache</span><br></pre></td></tr></table></figure>
+
+<p>vue打包阶段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">env-test-build:</span><br><span class="line">  stage: node-test-build</span><br><span class="line">  image: node:8.11.1</span><br><span class="line">  variables:</span><br><span class="line">    GIT_STRATEGY: fetch</span><br><span class="line">  only:</span><br><span class="line">    refs:</span><br><span class="line">      - test</span><br><span class="line">  script:</span><br><span class="line">    - node -v</span><br><span class="line">    - npm -v</span><br><span class="line">    - npm install</span><br><span class="line">    - npm run build-test</span><br><span class="line">    - cp -rf dist /opt/cache/dist</span><br><span class="line">    - ls -alh</span><br></pre></td></tr></table></figure>
+
+<p>容器构建阶段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker-push:</span><br><span class="line">  stage: docker-build</span><br><span class="line">  only:</span><br><span class="line">    refs:</span><br><span class="line">      - test</span><br><span class="line">      - master</span><br><span class="line">  image:</span><br><span class="line">    name: harbor.njbandou.com/library/gcr.io/kaniko-project/executor:debug</span><br><span class="line">    entrypoint: [&quot;&quot;]</span><br><span class="line">  script:</span><br><span class="line">    - cp /opt/cache/app.jar ./</span><br><span class="line">    - echo &quot;&#123;\&quot;auths\&quot;:&#123;\&quot;$HARBOR_REGISTRY\&quot;:&#123;\&quot;username\&quot;:\&quot;$HARBOR_REGISTRY_USER\&quot;,\&quot;password\&quot;:\&quot;$HARBOR_REGISTRY_PASSWORD\&quot;&#125;&#125;&#125;&quot; &gt; /kaniko/.docker/config.json</span><br><span class="line">    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $HARBOR_PUSH_URL/$IMAGE_NAME</span><br></pre></td></tr></table></figure>
+
+<p>部署阶段：<br>此阶段定义了两个变量, kube_config 可以使用命令<font color="red">echo $(cat ~/.kube/config | base64) | tr -d “ “ </font>去生成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">variables:</span><br><span class="line">  kube_config: xxxxxxxxx</span><br><span class="line">  KUBECONFIG: /etc/deploy/config</span><br><span class="line">env-test-deploy:</span><br><span class="line">  stage: deploy-to-test-env</span><br><span class="line">  image: harbor.njbandou.com/library/kubectl:latest</span><br><span class="line">  only:</span><br><span class="line">    refs:</span><br><span class="line">      - test</span><br><span class="line">  script:</span><br><span class="line">    - mkdir -p /etc/deploy</span><br><span class="line">    - echo $kube_config |base64 -d &gt; $KUBECONFIG</span><br><span class="line">    - cd deployment</span><br><span class="line">    - sed -i &quot;s/__VERSION__/$&#123;CI_PIPELINE_ID&#125;/g&quot; deployment.yaml</span><br><span class="line">    - cat deployment.yaml</span><br><span class="line">    - kubectl apply -f deployment.yaml</span><br><span class="line">    - kubectl get pods,svc -n test</span><br></pre></td></tr></table></figure>
+
+<p>这就是关于 Gitlab CI 结合 Kubernetes 进行 CI/CD 的过程，具体详细的构建任务还需要结合我们自己的应用实际情况而定。</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Inspired By <a target="_blank" href="https://github.com/ykmaster">yang kang.</a>
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="kang yang">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="http网络请求码">
+  <meta property="og:description" content="赚钱是最好的修行">
+  <meta property="og:site_name" content="沉默的羊">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://baidu.com">
+  
+    <link rel="alternate" href="/atom.xml" title="沉默的羊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>沉默的羊</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">http网络请求码</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/ykmaster">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:ykmaster@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By kang yang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-01-03</span>
+            <span class="time">11:24:42</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/network/">network</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/http/">#http</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>http常见的请求码：</p>
+<a id="more"></a>
+
+<ul>
+<li>100 信息型状态响应码表示目前为止一切正常, 客户端应该继续请求, 如果已完成请求则忽略</li>
+<li>101 状态码表示服务器应客户端升级协议的请求（<code>Upgrade</code>请求头）正在进行协议切换</li>
+<li>201-206 都表示服务器成功处理了请求的状态代码<br>200 ok<br>201 是一个代表成功的应答状态码，表示请求已经被成功处理，并且创建了新的资源<br>202 表示服务器端已经收到请求消息，但是尚未进行处理<br>203 Non-Authoritative Information<br>204 成功状态响应码，表示该请求已经成功了，但是客户端客户不需要离开当前页面<br>205 通知客户端重置文档视图，比如清空表单内容、重置 canvas 状态或者刷新用户界面<br>206 </li>
+<li>300-308 表示的意思是：要完成请求，您需要进一步进行操作<br>300 重定向<br>301 永久重定向<br>302 表明请求的资源被暂时的移动到了由<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Location" target="_blank" rel="noopener"><code>Location</code></a> 头部指定的 URL 上<br>303 重定向链接指向的不是新上传的资源，而是另外一个页面，比如消息确认页面或上传进度页面<br>304 可以使用缓存的内容<br>305<br>306<br>307 临时重定向<br>308 永久重定向</li>
+<li>4XX 状态码表示请求可能出错<br>400（错误请求） 服务器不理解请求的语法。<br>401（身份验证错误） 此页要求授权。您可能不希望将此网页纳入索引。<br>403（禁止） 服务器拒绝请求。<br>404（未找到） 服务器找不到请求的网页<br>405 表明服务器禁止了使用当前 HTTP 方法的请求</li>
+<li>5xx 服务器在尝试处理请求时发生内部错误。<br>500 意味着所请求的服务器遇到意外的情况并阻止其执行请求<br>501 表示请求的方法不被服务器支持，因此无法被处理<br>502 表示作为网关或代理角色的服务器，从上游服务器中接收到的响应是无效的<br>503 表示服务器尚未处于可以接受请求的状态<br>504 表示扮演网关或者代理的服务器无法在规定的时间内获得想要的响应<br>505 表示服务器不支持请求所使用的 HTTP 版本<br>511 表示客户端需要通过验证才能使用该网络</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Inspired By <a target="_blank" href="https://github.com/ykmaster">yang kang.</a>
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

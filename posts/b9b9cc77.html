@@ -8,10 +8,10 @@
   <meta name="description" content>
   <meta name="author" content="kang yang">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="沉默的羊">
+  <meta property="og:title" content="开启Docker Remote API访问">
   <meta property="og:description" content="赚钱是最好的修行">
   <meta property="og:site_name" content="沉默的羊">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:image" content="http://baidu.com">
   
     <link rel="alternate" href="/atom.xml" title="沉默的羊" type="application/atom+xml">
@@ -35,8 +35,7 @@
 </head>
 
   <body>
-    <!-- Archive Header -->
-<!-- Page Header -->
+    <!-- Page Header -->
 
 
 <header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
@@ -44,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">Blog Archives</p>
+          <p class="title">开启Docker Remote API访问</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -89,34 +88,49 @@
   </div>
 </header>
 
-<!-- Archive List -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      
-        <div class="archive-item">
-  <a href="/posts/b6d72526.html" class="post-title">
-    制作CI/CD中的kubectl容器
-  </a>
-  <div class="date text-muted">Posted on 2019-10-23 15:34:38</div>
-</div>
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By kang yang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-11-28</span>
+            <span class="time">11:24:42</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
 
-      
+<a href="/categories/docker/">docker</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
 
+<a class="tag" href="/tags/docker/">#docker</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h5 id="Docker常见端口有："><a href="#Docker常见端口有：" class="headerlink" title="Docker常见端口有："></a>Docker常见端口有：</h5><p> 2375：未加密的docker socket,远程root无密码访问主机<a id="more"></a><br> 2376：tls加密套接字,很可能这是您的CI服务器4243端口作为https 443端口的修改<br> 2377：群集模式套接字,适用于群集管理器,不适用于docker客户端<br> 5000：docker注册服务<br> 4789和7946：覆盖网络</p>
+<h5 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h5><p>/usr/lib/systemd/system/docker.service<br>加上  ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:2375 -H unix://var/run/docker.sock</p>
+<h5 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h5><p>systemctl daemon-reload<br>systemctl restart docker</p>
+
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<!-- Pagination -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
-      <ul class="pagination">
-          
-          
-      </ul>
-    </div>
-  </div>
-</div>
+</article>
 
 
 

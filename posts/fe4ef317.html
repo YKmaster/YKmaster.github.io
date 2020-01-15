@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="kang yang">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="linux常用命令">
+  <meta property="og:description" content="赚钱是最好的修行">
+  <meta property="og:site_name" content="沉默的羊">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://baidu.com">
+  
+    <link rel="alternate" href="/atom.xml" title="沉默的羊" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>沉默的羊</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">linux常用命令</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/ykmaster">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:ykmaster@163.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By kang yang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-01-07</span>
+            <span class="time">11:24:42</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/categories/linux/">linux</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/cli/">#cli</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h5 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount --bind /opt/upload/ /tomcat/upload/</span><br><span class="line">umount /tomcat/upload/</span><br></pre></td></tr></table></figure>
+
+<h5 id="ln-s"><a href="#ln-s" class="headerlink" title="ln -s"></a>ln -s</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">软链接（-s）：</span><br><span class="line">1.软链接，以路径的形式存在。类似于Windows操作系统中的快捷方式</span><br><span class="line">2.软链接可以 跨文件系统 ，硬链接不可以</span><br><span class="line">3.软链接可以对一个不存在的文件名进行链接</span><br><span class="line">4.软链接可以对目录进行链接</span><br><span class="line">硬链接：</span><br><span class="line">1.硬链接，以文件副本的形式存在。但不占用实际空间。</span><br><span class="line">2.不允许给目录创建硬链接</span><br><span class="line">3.硬链接只有在同一个文件系统中才能创建</span><br></pre></td></tr></table></figure>
+
+<h5 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-r 递归</span><br><span class="line">-f 覆盖已存在目录文件</span><br><span class="line">-i 提示</span><br><span class="line">-p 同时复制修改时间和权限</span><br></pre></td></tr></table></figure>
+
+<h5 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-i 需要确认</span><br><span class="line">-f 无需确认</span><br><span class="line">-r 递归</span><br></pre></td></tr></table></figure>
+
+<h5 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scp local_file remote_username@remote_ip:remote_folder</span><br><span class="line">scp local_file remote_username@remote_ip:remote_file</span><br><span class="line"></span><br><span class="line">-r 递归</span><br><span class="line">-v 显示输出</span><br></pre></td></tr></table></figure>
+
+<h5 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh omd@192.168.1.100  -o stricthostkeychecking=no # 首次登陆免输yes登录</span><br><span class="line"></span><br><span class="line">-p 端口</span><br><span class="line">-i 认证文件</span><br></pre></td></tr></table></figure>
+
+<h5 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">编码文件：base64 file 或者 cat file | base64</span><br><span class="line">				echo &apos;bandou&apos; | base64</span><br><span class="line">解码文件：base64 -d</span><br></pre></td></tr></table></figure>
+
+<h5 id="df-h"><a href="#df-h" class="headerlink" title="df -h"></a>df -h</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-h 可读格式</span><br><span class="line">-T 显示文件系统</span><br></pre></td></tr></table></figure>
+
+<h5 id="du"><a href="#du" class="headerlink" title="du"></a>du</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">du -h --max-depth=1 /opt</span><br><span class="line"></span><br><span class="line">-s 仅显示当前目录</span><br><span class="line">-h 以可读的方式显示</span><br><span class="line">--max-depth=1 查看当前目录和下一级子目录</span><br></pre></td></tr></table></figure>
+
+<h5 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST --header&quot;Content-Type:application/json&quot; --data ‘&#123;&#125;’ url</span><br><span class="line"></span><br><span class="line">-h 帮助</span><br><span class="line">-o 输出到文件</span><br><span class="line">-O 保存网页中的文件</span><br><span class="line">-s 安静模式</span><br><span class="line">-X request</span><br><span class="line">-i 获取文本信息和协议头</span><br><span class="line">-I 仅返回请求头</span><br><span class="line">-# 显示进度条</span><br></pre></td></tr></table></figure>
+
+<h5 id="grep-egrep-fgrep"><a href="#grep-egrep-fgrep" class="headerlink" title="grep / egrep / fgrep"></a>grep / egrep / fgrep</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">--color</span><br><span class="line">-E 开启扩展正则表达式</span><br><span class="line">-v 打印没有匹配的</span><br><span class="line">-n 显示行</span><br><span class="line">-c 有多少行被匹配</span><br><span class="line">-A  n：显示匹配到的字符串所在的行及其后n行，after</span><br><span class="line">-B  n：显示匹配到的字符串所在的行及其前n行，before</span><br><span class="line">-C  n：显示匹配到的字符串所在的行及其前后各n行，context</span><br></pre></td></tr></table></figure>
+
+<h5 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">awk &apos;&#123;print $1,$4&#125;&apos; log.txt</span><br><span class="line">awk -F, &apos;&#123;print $1,$2&#125;&apos;   log.txt</span><br><span class="line">awk -va=1 &apos;&#123;print $1,$1+a&#125;&apos; log.txt</span><br><span class="line"></span><br><span class="line">-f 从脚本文件读取命令</span><br><span class="line">-F 指定分割符</span><br><span class="line">-v 设置变量</span><br></pre></td></tr></table></figure>
+
+<h5 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sed -i &apos;1a\nesdfsdw&apos; tmp.txt	第二行插入</span><br><span class="line">sed &apos;1 d&apos; tmp.txt 删除第一行</span><br><span class="line"></span><br><span class="line">-e 指定脚本，命令行模式，默认</span><br><span class="line">-f 指定文件</span><br><span class="line">-i 直接修改文件</span><br><span class="line"></span><br><span class="line">a 新增</span><br><span class="line">c 取代</span><br><span class="line">d 删除</span><br><span class="line">i 插入</span><br><span class="line">p 打印</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+
+<h5 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar app.jar &gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line">nohup 不挂断，没有后台运行的功能</span><br><span class="line">&gt;/dev/null 无法打开，任何文件都可以重定向到这</span><br><span class="line">2&gt;&amp;1 标准错误重定向</span><br><span class="line">&amp; 后台运行</span><br></pre></td></tr></table></figure>
+
+<h5 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wc file</span><br><span class="line"></span><br><span class="line">分别显示行数、字数、字节数</span><br><span class="line">-l 只显示行数</span><br><span class="line">-w 只显示字数</span><br><span class="line">-c 只显示字节数</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看系统信息"><a href="#查看系统信息" class="headerlink" title="查看系统信息"></a>查看系统信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br><span class="line">lsb_release -a</span><br><span class="line">cat /proc/cpuinfo</span><br><span class="line">cat /proc/version</span><br><span class="line">cat /etc/redhat-release</span><br><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
+
+<h5 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tar cvf temp.tar dist</span><br><span class="line">tar xvf temp.tar</span><br><span class="line"></span><br><span class="line">-c 建立压缩文件</span><br><span class="line">-x 提取文件</span><br><span class="line">-v 显示过程</span><br><span class="line">-f 指定文件</span><br></pre></td></tr></table></figure>
+
+<h5 id="sh脚本"><a href="#sh脚本" class="headerlink" title="sh脚本"></a>sh脚本</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">if</span><br><span class="line">for</span><br><span class="line">输入</span><br></pre></td></tr></table></figure>
+
+<h5 id="open"><a href="#open" class="headerlink" title="open"></a>open</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">open 使用关联程序打开</span><br><span class="line">open -e 使用文本编辑程序打开</span><br><span class="line">open -a 自行选择程序打开</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Inspired By <a target="_blank" href="https://github.com/ykmaster">yang kang.</a>
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

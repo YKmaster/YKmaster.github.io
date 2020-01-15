@@ -8,10 +8,10 @@
   <meta name="description" content>
   <meta name="author" content="kang yang">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="沉默的羊">
+  <meta property="og:title" content="vi命令详解">
   <meta property="og:description" content="赚钱是最好的修行">
   <meta property="og:site_name" content="沉默的羊">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:image" content="http://baidu.com">
   
     <link rel="alternate" href="/atom.xml" title="沉默的羊" type="application/atom+xml">
@@ -35,8 +35,7 @@
 </head>
 
   <body>
-    <!-- Archive Header -->
-<!-- Page Header -->
+    <!-- Page Header -->
 
 
 <header class="site-header header-background" style="background-image: url(/img/default-banner-light.jpg)">
@@ -44,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">Blog Archives</p>
+          <p class="title">vi命令详解</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -89,34 +88,64 @@
   </div>
 </header>
 
-<!-- Archive List -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      
-        <div class="archive-item">
-  <a href="/posts/b6d72526.html" class="post-title">
-    制作CI/CD中的kubectl容器
-  </a>
-  <div class="date text-muted">Posted on 2019-10-23 15:34:38</div>
-</div>
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By kang yang</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-01-03</span>
+            <span class="time">11:24:42</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
 
-      
+<a href="/categories/linux/">linux</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
 
+<a class="tag" href="/tags/vi/">#vi</a> <a class="tag" href="/tags/vim/">#vim</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>vi可分为三种状态，命令行模式（光标移动，字符删除），插入模式（文字输入），底行模式（保存退出，寻找等）</p>
+<a id="more"></a>
+
+<p>1）插入模式</p>
+<p>​    按 i 进入插入模式</p>
+<p>​    按 a 从当前下一个位置开始输入</p>
+<p>​    按 o 插入新行</p>
+<p>2）移动光标</p>
+<p>​    G 移到末行</p>
+<p>​    数字 0 移到行开头</p>
+<p>​    ^ | $ 行首行尾</p>
+<p>​    w | b 下个字、上个字 </p>
+<p>3）删除字符</p>
+<p>​    x 删除下个字符</p>
+<p>​    dd 删除行</p>
+<p>4）u 恢复操作</p>
+<p>5）:set nu 列出行号</p>
+<p>6）:/80 可以一直按 n 找出想要的关键词</p>
+
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<!-- Pagination -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
-      <ul class="pagination">
-          
-          
-      </ul>
-    </div>
-  </div>
-</div>
+</article>
 
 
 
